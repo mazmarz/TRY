@@ -1,0 +1,10 @@
+image: docker
+
+services:
+  - docker:dind
+
+# verifying that login works
+before_script:
+  - docker info
+  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+
